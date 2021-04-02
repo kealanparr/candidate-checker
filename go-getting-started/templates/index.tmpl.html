@@ -18,14 +18,15 @@
 					<label class="candidateSearch" for="name">Candidate full name:</label>
 					<input type="text" id="name" name="name" required size="50" style="color: black;">
 					<script>
+						window.addEventListener('load', function() {
 							const node = document.getElementsByClassName("candidateSearch")[0];
 							node.addEventListener("keyup", function(event) {
-							debugger;
-							if (event.key === "Enter") {
-								window.location.href = "https://mysterious-hollows-01965.herokuapp.com/" + node.value
-								
-							}
-						})
+								debugger;
+								if (event.key === "Enter") {
+									window.location.href = "https://mysterious-hollows-01965.herokuapp.com/" + node.value
+								}
+							});
+  					});
 					</script>
 			</div>
 		</div>
