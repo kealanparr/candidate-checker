@@ -21,14 +21,16 @@ func main() {
 	router.LoadHTMLGlob("templates/*.tmpl.html")
 	router.Static("/static", "static")
 
+	router.GET("/kealanparr", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "goodcandidate.tmpl.html", nil)	
+	}
+
 	router.GET("/", func(c *gin.Context) {
-		if c.Request.URL.Path == "/kealanparr" {
-			c.HTML(http.StatusOK, "goodcandidate.tmpl.html", nil)
-		} else if c.Request.URL.Path == "/" {
 			c.HTML(http.StatusOK, "index.tmpl.html", nil)
-		} else {
-			c.HTML(http.StatusOK, "badcandidate.tmpl.html", nil)
-		}
+	})
+
+	router.NoRoute(func(c *gin.Context) {
+		c.HTML(http.StatusOK, "badcandidate.tmpl.html", nil)
 	})
 
 	router.Run(":" + port)
