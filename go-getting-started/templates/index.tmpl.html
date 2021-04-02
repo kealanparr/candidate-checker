@@ -21,9 +21,8 @@
 						window.addEventListener('load', function() {
 							const node = document.getElementById("name");
 							node.addEventListener("keyup", function(event) {
-								debugger;
 								if (event.key === "Enter") {
-									window.location.href = "https://mysterious-hollows-01965.herokuapp.com/" + node.value
+									window.location.href = "https://mysterious-hollows-01965.herokuapp.com/" + node.value.replace(" ", "")
 								}
 							});
   					});
