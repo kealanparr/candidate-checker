@@ -22,9 +22,9 @@ func main() {
 	router.Static("/static", "static")
 
 	router.GET("/", func(c *gin.Context) {
-		if c.FullPath() == "/kealanparr" {
+		if c.Request.URL.Path == "/kealanparr" {
 			c.HTML(http.StatusOK, "goodcandidate.tmpl.html", nil)
-		} else if c.FullPath() == "/" {
+		} else if c.Request.URL.Path == "/" {
 			c.HTML(http.StatusOK, "index.tmpl.html", nil)
 		} else {
 			c.HTML(http.StatusOK, "badcandidate.tmpl.html", nil)
