@@ -16,10 +16,11 @@
 				<h1>Welcome to the GRI candidate checker!</h1>
 					<p>Who are you thinking of choosing?</p>
 					<label class="candidateSearch" for="name">Candidate full name:</label>
-					<input type="text" id="name" name="name" required size="50">
+					<input type="text" id="name" name="name" required size="50" style="color: black;">
 					<script>
 							const node = document.getElementsByClassName("candidateSearch")[0];
 							node.addEventListener("keyup", function(event) {
+							debugger;
 							if (event.key === "Enter") {
 								window.location.href = "https://mysterious-hollows-01965.herokuapp.com/" + node.value
 								
