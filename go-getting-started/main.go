@@ -21,12 +21,14 @@ func main() {
 	router.LoadHTMLGlob("templates/*.tmpl.html")
 	router.Static("/static", "static")
 
-	router.GET("/kealanparr", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "goodcandidate.tmpl.html", nil)
-	})
-
 	router.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.tmpl.html", nil)
+		if c.FullPath() == "/kealanparr" {
+			c.HTML(http.StatusOK, "goodcandidate.tmpl.html", nil)
+		} else if c.FullPath() == "/" {
+			c.HTML(http.StatusOK, "index.tmpl.html", nil)
+		} else {
+			c.HTML(http.StatusOK, "badcandidate.tmpl.html", nil)
+		}
 	})
 
 	router.Run(":" + port)
